@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  .row
+    .col-xs-12
+      h2.section-title(title='用户注册')
+        span 用户登录
+  .row
+    .col-xs-12
+      form.row.contact-form(method="post", action='/user/signup')
+        .col-xs-12.col-sm-6.col-sm-offset-3
+          input#form-name.form-control(type='text', name="user[name]")
+        .col-xs-12.col-sm-6.col-sm-offset-3
+          input#form-password.form-control(type='text', name="user[password]")
+        .col-xs-12.col-sm-6.col-sm-offset-3
+          button.button.pink.btn-block(type='submit') 注册

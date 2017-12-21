@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  include ../includes/admin_header
+   
+  .container
+    h3 客户提交数据
+    .row
+      table.table.table-striped.table-admin
+        thead
+          tr
+            th 名称
+            th 邮件
+            th 主题
+            th 内容
+            th 删除
+        tbody
+          each item in msgs
+            tr(class="item-id-#{item._id}")
+              td #{item.name}
+              td #{item.email}
+              td #{item.title}
+              td #{item.msg}
+              td
+                button.btn.btn-danger.msg-del(type="button", data-id="#{item._id}") 删除
+  script(src="/build/admin.min.js")

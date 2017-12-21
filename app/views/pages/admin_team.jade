@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+  include ../includes/admin_header
+
+  .container
+    h3.text-center
+      数据录入
+    form.row.contact-form(method="post", action="/admin/team/add", enctype="multipart/form-data")
+      input(type="hidden", name="team[_id]", value=team._id)
+      .form-group
+        .col-md-6.col-md-offset-3.col-sm-12
+          input#inputName.form-control(type="text", name="team[name]", value=team.name, placeholder="姓名")
+      .form-group
+        .col-md-6.col-md-offset-3.col-sm-12
+          input#inputJob.form-control(type="text", name="team[job]", value=team.job, placeholder="工作")
+      .form-group
+        .col-md-6.col-md-offset-3.col-sm-12
+          textarea#inputSummary.form-control(type="text", name="team[summary]", placeholder="简介")= team.summary
+      .form-group
+        .col-md-6.col-md-offset-3.col-sm-12
+          input#uploadPoster(type="file", name="uploadPoster")
+      .form-group
+        .col-sm-offset-3.col-sm-6
+          button.btn.btn-default(type="submit") 录入        
+  .container
+    .row
+      table.table.table-striped.table-admin
+        thead
+          tr
+            th 姓名
+            th 简介
+            th 工作
+            th 图片
+            th 删除
+        tbody
+          each item in teams
+            tr(class="item-id-#{item._id}")
+              td #{item.name}
+              td #{item.summary}
+              td #{item.job}
+              td
+                // 判断是否是绝对路径和相对路径
+                img(src="/upload/#{item.image}", alt="#{item.title}", width=60)
+                  
+              td
+                button.btn.btn-danger.del(type="button", data-id="#{item._id}") 删除
+  script(src="/build/admin.min.js")

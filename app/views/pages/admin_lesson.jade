@@ -1,0 +1,43 @@
+extends ../layout
+
+block content
+  include ../includes/admin_header
+
+  .container
+    h3.text-center 课程数据录入
+    form.row.contact-form(method="post", action="/admin/lesson/add")
+      input(type="hidden", name="lesson[_id]", value=lesson._id)
+      .col-md-6.col-sm-12
+        input#inputName.form-control(type="text", name="lesson[name]", value=lesson.name, placeholder="课程名称")
+      .col-md-6.col-sm-12
+        input#inputPrice.form-control(type="text", name="lesson[price]", value=lesson.price, placeholder="价格")
+      .col-md-6.col-sm-12
+        input#inputTime.form-control(type="text", name="lesson[time]", value=lesson.time placeholder="时间")
+      .col-md-6.col-sm-12
+        input#inputClasses.form-control(type="text", name="lesson[classes]", value=lesson.classes, placeholder="课时")
+      .col-sm-12
+        textarea#inputSummary.form-control(type="text", name="lesson[summary]", placeholder="简介")= lesson.summary
+      .col-sm-6
+        button.btn.btn-default(type="submit") 录入        
+  .container
+    .row
+      table.table.table-striped.table-admin
+        thead
+          tr
+            th 课程名称
+            th 开课时间
+            th 课程价格
+            th 课时
+            th 课程简介
+            th 删除
+        tbody
+          each item in lessones
+            tr(class="item-id-#{item._id}")
+              td #{item.name}
+              td #{item.time}
+              td #{item.price}
+              td #{item.classes}
+              td #{item.summary}
+              td
+                button.btn.btn-danger.lesson-del(type="button", data-id="#{item._id}") 删除
+  script(src="/build/admin.min.js")

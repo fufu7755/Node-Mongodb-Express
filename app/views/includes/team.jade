@@ -1,0 +1,19 @@
+// Team-Section
+section#team-section
+  .container
+    .row
+      .col-xs-12
+        h2.section-title(title='Team')
+          span 我们的团队
+    .row.team
+      each item in teams
+        .col-xs-12.col-sm-6.col-md-3
+          .single-team
+            .team-photo
+              img(src='/upload/#{item.image}', alt='')
+            .team-data
+              h4 #{item.name}
+              p
+                | #{item.summary}
+              p
+                | #{item.job}

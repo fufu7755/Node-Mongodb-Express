@@ -1,0 +1,7 @@
+.table.table-admin > thead > tr > th {
+  padding: 8px;
+}
+
+.table.table-admin > tbody > tr > td {
+  padding: 8px;
+}

@@ -1,0 +1,36 @@
+// Contact-Section
+section#contact-section
+  .container
+    .row
+      .col-xs-12
+        h2.section-title(title='Contact us')
+          span 联系我们
+    .row
+      .col-xs-6.col-xs-offset-3
+        #myAlert
+    .row
+      .col-xs-12
+        form.row.contact-form()
+          .col-xs-12.col-sm-6
+            input#form-name.form-control(type='text', placeholder='姓名', required='')
+          .col-xs-12.col-sm-6
+            input#form-email.form-control(type='email', placeholder='邮件', required='')
+          .col-xs-12
+            input#form-subject.form-control(type='text', placeholder='主题', required='')
+          .col-xs-12
+            textarea#form-message.form-control(rows='6', placeholder='信息', required='')
+          .col-xs-12.col-sm-3.text-right.pull-right
+            button#msgSubmit.button.pink(type='button') 提交
+          .col-xs-12.col-sm-5
+            address
+              strong 电话 
+              | : 18552830426 
+              br
+              strong 邮件 
+              | : 383467192@qq.com 
+              br
+              strong 地址 
+              | : 中凯城市之光5号楼
+          .col-xs-12.col-sm-4
+            
+  script(src="/js/admin.js")

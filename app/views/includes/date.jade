@@ -1,0 +1,25 @@
+// Date-Movie
+section#date-section.gray-bg
+  .container
+    .row
+      .col-xs-12
+        h2.section-title(title='DATE CINEMA')
+          span 课程表
+    .row
+      .col-xs-12.col-md-10.col-md-offset-1.date-list
+        .table-responsive
+          table.table
+            tbody
+              each item in lessons
+                tr
+                  td.movie-date
+                    | #{item.time}
+                  td
+                    span.movie-title
+                      | #{item.name}
+                      br
+                      small #{item.classes}
+                  td
+                    p
+                      | #{item.summary}
+            

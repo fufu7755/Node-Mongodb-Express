@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  include ../includes/admin_header
+  
+  if !user
+    .row
+      .col-xs-12
+        h2.section-title(title='用户登录')
+          span 用户登录
+    .row
+      .col-xs-12
+        form.row.contact-form(method="post", action='/user/signin')
+          .col-xs-12.col-sm-4.col-sm-offset-4
+            .form-group
+              label(for="form-name") 用户名：
+              input#form-name.form-control(type='text', name="user[name]")
+          .col-xs-12.col-sm-4.col-sm-offset-4
+            .form-group
+              label(for="form-password") 密码：
+              input#form-password.form-control(type='password', name="user[password]")
+          .col-xs-12.col-sm-4.col-sm-offset-4
+            button.button.pink.btn-block(type='submit') 登录
